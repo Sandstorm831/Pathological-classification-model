@@ -67,36 +67,59 @@ Similar procedure is followed in creating the test dataset
 x_test = np.array(x_test) # converting x_test to numpy array
 y_test = to_categorical(y_test) # one hot encoding for the labels
 ```
-x_test & x_test is an array so , converting them to numpy 
+x_train & x_test is an array so , converting them to numpy 
 arrays 
 applying one hot encoding to the labels of the classes
 
 # Splitting the data into training and validation data 
-![image](https://user-images.githubusercontent.com/76916164/120117807-a4e5ee80-c1ac-11eb-974d-df85292906e1.png)
- 
- 
+```
+from sklearn.model_selection import train_test_split
+X_train, X_val, Y_train, Y_val = train_test_split(x_train,y_train,test_size=0.1,random_state=0)
+``` 
 90% of the data is used for the training the data while 10% of the data is set as validation data 
 
 # ResNet-50 CNN Classifier
 ResNet-50 is a convolutional neural network that is 50 layers deep . In this project , pretrained model of resnet 50 is used. 
-![image](https://user-images.githubusercontent.com/76916164/120117821-bc24dc00-c1ac-11eb-8228-84a0569ac33b.png)
+```
+model_resnet = resnet50.ResNet50(weights='imagenet')
+model_resnet.summary()
+```
+![image](https://user-images.githubusercontent.com/76916164/120118825-360b9400-c1b2-11eb-93d1-3dcde5fb20b5.png)
+
 
 Retaining all the parameters of the Resnet-50
 Printing a general ResNet-50 classifier summary
+
 # Changing the dimensions of input layer
+
 As the dimensions of the input layer is different from dimensions of the input image matrix , therefore , add a new input layer with dimensions corresponding to the input matix
- ![image](https://user-images.githubusercontent.com/76916164/120117834-d5c62380-c1ac-11eb-9bb7-3cfe38f80038.png)
+```
+input_layer = layers.Input(shape=(100,100,3))
+model_resnet = resnet50.ResNet50(weights='imagenet',input_tensor=input_layer,include_top=False)
+```
 
 Initializing a input layer of 100 x 100 x 3 dimension
 Passing the initialized input layer to the ResNey-50 model
 
 # Flattening and adding output layers
-![image](https://user-images.githubusercontent.com/76916164/120117883-0f972a00-c1ad-11eb-8dc1-f88c5a9e69ee.png)
+```
+last_layer = model_resnet.output
+flatten = layers.Flatten()(last_layer)# last layer is flattened
+output_layer = layers.Dense(4,activation = 'softmax')(flatten) # creating flattened output dense layer 
+model = models.Model(inputs = input_layer, outputs = output_layer)
+```
  
 Flattening the last layer 
 Adding a flattened dense output layer with 4 output channels with softmax activation layer 
 # Freezing all the parameters except last layer
-![image](https://user-images.githubusercontent.com/76916164/120117896-2f2e5280-c1ad-11eb-8371-83e20866c8c3.png)
+```
+for layer in model.layers[:-1]:
+    layer.trainable=False
+    
+# final model structure
+model.summary()
+![image](https://user-images.githubusercontent.com/76916164/120118964-ce097d80-c1b2-11eb-8c43-95fe17f14991.png)
+```
 
 For loop iterates over all layers except last layer , freezing all the parameters except of last layer
 In model summary we can see that input layer have dimensions as that of the image matrix
