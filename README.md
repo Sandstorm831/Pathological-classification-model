@@ -1,12 +1,13 @@
 # Pathological-classification-model
 A classifier used to classify different OCT images as CME, DMV , DRUSEN &amp; NORMAL
 In this project I have made a model , that would predict whether a OCT scan belong to DME, CNV, DRUSSEN or NORMAL class  
- ![image](https://user-images.githubusercontent.com/76916164/120117042-d3fa6100-c1a8-11eb-854d-0e5e076f7aad.png)
+![image](https://user-images.githubusercontent.com/76916164/120117641-c5fa0f80-c1ab-11eb-8b0a-c9cc88007f89.png)
+
 
 Extracting classes
  
 Loading dataset
-C 
+
 Two for loop are taken into account for the iterating over all examples of the image, first for loop iterate over all the classes of the data and second for loop is used to iterate over all the images of that particular class 
 Converts the image in a 100 x 100 pixels image  
 Converts the 100 x 100 image into an array of dimension (100,100,3)
