@@ -3,7 +3,7 @@
 A classifier used to classify different OCT images as CME, DMV , DRUSEN &amp; NORMAL
 In this project I have made a model , that would predict whether a OCT scan belong to DME, CNV, DRUSSEN or NORMAL class 
 # Importing libraries
-'''
+```
 import numpy as np
 import matplotlib.pyplot as plt
 import os
@@ -15,7 +15,7 @@ from tensorflow.keras.preprocessing import image
 from tensorflow.keras import models, layers
 
 from tensorflow.keras.applications import resnet50
-'''
+```
 
 # Extracting classes
  ![image](https://user-images.githubusercontent.com/76916164/120117755-53d5fa80-c1ac-11eb-93c5-56153d60bca4.png)
