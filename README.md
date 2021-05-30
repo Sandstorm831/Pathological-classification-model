@@ -2,7 +2,7 @@
 A classifier used to classify different OCT images as CME, DMV , DRUSEN &amp; NORMAL
 In this project I have made a model , that would predict whether a OCT scan belong to DME, CNV, DRUSSEN or NORMAL class 
 # Importing libraries
-![image](https://user-images.githubusercontent.com/76916164/120117734-402a9400-c1ac-11eb-89f7-c836140dc379.png)
+![image](https://user-images.githubusercontent.com/76916164/120117734-402a9400-c1ac-11eb-89f7-c836140dc379.png)   hello all 
 
 # Extracting classes
  ![image](https://user-images.githubusercontent.com/76916164/120117755-53d5fa80-c1ac-11eb-93c5-56153d60bca4.png)
