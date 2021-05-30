@@ -180,7 +180,11 @@ acc.result().numpy()
 Due to class imbalance the F1 score of different of classes differ so drastically . different class have different numbers of data thus model have been trained on different amount of data for different class . 
 
 At last I have visualized the region of interest (ROI) of the images to identify which portion of the image is particularly responsible for the allocation of particular class
+
+
  ![image](https://user-images.githubusercontent.com/76916164/120119254-550b2580-c1b4-11eb-9a8e-7a0a5bcaee4c.png)
+ 
+ 
 Here the yellow region shows the portion of image which is responsible for the 
 classification of image 
 
