@@ -23,9 +23,17 @@ In my project, libraries I have used :
 - IPython
 - Tensorflow
 - Scikit Learn
-- 
+ 
 # Extracting classes
- ![image](https://user-images.githubusercontent.com/76916164/120117755-53d5fa80-c1ac-11eb-93c5-56153d60bca4.png)
+```
+main_folder = 'OCT2017/train'
+class_names = os.listdir(main_folder)
+print(class_names)
+```
+Here we use directories for finding the different classes 
+of the data . For listing the directories , we use OS 
+library’s listdir method .
+
 
 # Loading dataset
 ![image](https://user-images.githubusercontent.com/76916164/120117770-6819f780-c1ac-11eb-9d59-e27ee7e265bb.png)
