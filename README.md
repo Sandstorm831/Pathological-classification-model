@@ -118,20 +118,64 @@ for layer in model.layers[:-1]:
     
 # final model structure
 model.summary()
-![image](https://user-images.githubusercontent.com/76916164/120118964-ce097d80-c1b2-11eb-8c43-95fe17f14991.png)
 ```
-
+![image](https://user-images.githubusercontent.com/76916164/120118964-ce097d80-c1b2-11eb-8c43-95fe17f14991.png)
 For loop iterates over all layers except last layer , freezing all the parameters except of last layer
+![image](https://user-images.githubusercontent.com/76916164/120119019-0c9f3800-c1b3-11eb-93fb-dd21b5c9a072.png)
+
 In model summary we can see that input layer have dimensions as that of the image matrix
  
 Here , only 131076 parameters are trainable out of 23718788 parameters , therefore we have successfully freezed all the parameters except that of last layer
 # Compiling and Training 
-![image](https://user-images.githubusercontent.com/76916164/120117920-52590200-c1ad-11eb-9b25-eba80d0dd8de.png)
+```
+# compiling the model 
+model.compile(loss='categorical_crossentropy', optimizer = 'adam', metrics=['accuracy'])
+```
+```
+# fitting the data into model
+model.fit(X_train,Y_train,epochs=5,batch_size=64,verbose=True,validation_data=(X_val,Y_val))
+```
+![image](https://user-images.githubusercontent.com/76916164/120119078-58ea7800-c1b3-11eb-80c6-719534163c7f.png)
 
 Final training accuracy  = 86.39%           while         validation accuracy = 80.63%
 # Accuracy and F1 scores 
-![image](https://user-images.githubusercontent.com/76916164/120117939-6f8dd080-c1ad-11eb-887b-8c290048c423.png)
-
+```
+def predict(img_name):
+    prediction = model.predict(img_name.reshape(1,100,100,3))
+    return(np.argmax(prediction))
+```
+```
+output = []
+for image_no in range(x_test.shape[0]) :
+    output.append(predict(x_test[image_no]))
+```
+```
+output = np.array(output).reshape(1000,1)
+```
+```
+test_folder = 'OCT2017/test'
+true_labels = []
+for label in os.listdir(test_folder):
+    for img_number in os.listdir(test_folder+'/'+label):
+        true_labels.append(class_names.index(label))     
+```
+```
+from sklearn.metrics import f1_score,accuracy_score
+f1_score(true_labels,output, average=None)
+```
+![image](https://user-images.githubusercontent.com/76916164/120119162-d0200c00-c1b3-11eb-89bd-414411ecd53d.png)
+```
+output = to_categorical(output)
+```
+```
+from tensorflow.keras.metrics import Accuracy
+```
+```
+acc = Accuracy()
+acc.update_state(y_test,output)
+acc.result().numpy()
+```
+0.896
 Due to class imbalance the F1 score of different of classes differ so drastically . different class have different numbers of data thus model have been trained on different amount of data for different class . 
 
 At last I have visualized the region of interest (ROI) of the images to identify which portion of the image is particularly responsible for the allocation of particular class
