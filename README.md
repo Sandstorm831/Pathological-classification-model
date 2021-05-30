@@ -16,7 +16,14 @@ from tensorflow.keras import models, layers
 
 from tensorflow.keras.applications import resnet50
 ```
-
+In my project, libraries I have used :
+- Numpy
+- Matplotlib
+- Os
+- IPython
+- Tensorflow
+- Scikit Learn
+- 
 # Extracting classes
  ![image](https://user-images.githubusercontent.com/76916164/120117755-53d5fa80-c1ac-11eb-93c5-56153d60bca4.png)
 
