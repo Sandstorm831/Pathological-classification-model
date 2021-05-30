@@ -1,3 +1,4 @@
+
 # Pathological-classification-model
 A classifier used to classify different OCT images as CME, DMV , DRUSEN &amp; NORMAL
 In this project I have made a model , that would predict whether a OCT scan belong to DME, CNV, DRUSSEN or NORMAL class 
