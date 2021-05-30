@@ -36,7 +36,24 @@ library’s listdir method .
 
 
 # Loading dataset
-![image](https://user-images.githubusercontent.com/76916164/120117770-6819f780-c1ac-11eb-9d59-e27ee7e265bb.png)
+```
+x_train = [] #store the array of train images
+y_train = [] #store the arrays labels
+
+for folder in os.listdir(main_folder):
+    image_list = os.listdir(main_folder+'/'+folder)
+    for img_name in image_list:
+        img = image.load_img(main_folder+'/'+folder+'/'+img_name, target_size=(100,100))
+        # converting images to arrays of rgb values
+        img=image.img_to_array(img)
+        
+        # to preprocess images before passing to resnet
+        img = resnet50.preprocess_input(img)
+        
+        # adding image matrix to the input image matrix - x
+        x_train.append(img)
+        y_train.append(class_names.index(folder)) # adding label to the label matrix - y
+```
 
 Two for loop are taken into account for the iterating over all examples of the image, first for loop iterate over all the classes of the data and second for loop is used to iterate over all the images of that particular class 
 Converts the image in a 100 x 100 pixels image  
@@ -46,7 +63,13 @@ Appending the class of the image to the y_train matrix
 Similar procedure is followed in creating the test dataset 
 
 # Converting Arrays
- ![image](https://user-images.githubusercontent.com/76916164/120117790-85e75c80-c1ac-11eb-98b6-5763e7b01c02.png)
+```
+x_test = np.array(x_test) # converting x_test to numpy array
+y_test = to_categorical(y_test) # one hot encoding for the labels
+```
+x_test & x_test is an array so , converting them to numpy 
+arrays 
+applying one hot encoding to the labels of the classes
 
 # Splitting the data into training and validation data 
 ![image](https://user-images.githubusercontent.com/76916164/120117807-a4e5ee80-c1ac-11eb-974d-df85292906e1.png)
