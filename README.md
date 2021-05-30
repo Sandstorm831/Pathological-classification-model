@@ -175,11 +175,17 @@ acc = Accuracy()
 acc.update_state(y_test,output)
 acc.result().numpy()
 ```
-0.896
+![image](https://user-images.githubusercontent.com/76916164/120119224-2725e100-c1b4-11eb-93b7-177c1381ac4c.png)
+
 Due to class imbalance the F1 score of different of classes differ so drastically . different class have different numbers of data thus model have been trained on different amount of data for different class . 
 
 At last I have visualized the region of interest (ROI) of the images to identify which portion of the image is particularly responsible for the allocation of particular class
- ![image](https://user-images.githubusercontent.com/76916164/120117973-ab289a80-c1ad-11eb-9850-955524ea17f5.png)
+ ![image](https://user-images.githubusercontent.com/76916164/120119254-550b2580-c1b4-11eb-9a8e-7a0a5bcaee4c.png)
+Here the yellow region shows the portion of image which is responsible for the 
+classification of image 
+
+They have been formed by the superimposition of heatmap of the images over 
+the images
 
 
 references :
