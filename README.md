@@ -1,6 +1,6 @@
 
 # Pathological-classification-model
-A classifier used to classify different OCT images as CME, DMV , DRUSEN &amp; NORMAL
+A classifier used to classify different OCT images as DME, CNV, DRUSSEN &amp; NORMAL
 In this project I have made a model , that would predict whether a OCT scan belong to DME, CNV, DRUSSEN or NORMAL class 
 # Importing libraries
 ```
@@ -194,18 +194,15 @@ the images
 
 references :
 
-Dataset: https://data.mendeley.com/datasets/rscbjbr9sj/2
+Dataset: https://data.mendeley.com/datasets/rscbjbr9sj/2 
 
-[1] Pytorch - https://pytorch.org/tutorials
- 
-
-[2] Deep Learning for AI Specialization
+[1] Deep Learning for AI Specialization
 https://www.deeplearning.ai/program/ai-for-medicine-specialization/
  
 
-[3] Roychowdhury, Sohini, et al. “SISE-PC: Semi-supervised Image Subsampling for Explainable Pathology.” arXiv preprint arXiv:2102.11560 (2021). https://github.com/anoopsanka/retinal_oct  
+[2] Roychowdhury, Sohini, et al. “SISE-PC: Semi-supervised Image Subsampling for Explainable Pathology.” arXiv preprint arXiv:2102.11560 (2021). https://github.com/anoopsanka/retinal_oct  
  
-[4] Feature Visualization: GradCAM and torchcam
+[3] Feature Visualization: GradCAM and torchcam
 GradCAM: https://keras.io/examples/vision/grad_cam (tensorflow)
 torchcam: https://pypi.org/project/torchcam (pytorch)
 
