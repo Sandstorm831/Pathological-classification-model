@@ -119,9 +119,9 @@ for layer in model.layers[:-1]:
 # final model structure
 model.summary()
 ```
-![image](https://user-images.githubusercontent.com/76916164/120118964-ce097d80-c1b2-11eb-8c43-95fe17f14991.png)
+![image](https://github.com/Sandstorm831/Pathological-classification-model/blob/main/Images/120118964-ce097d80-c1b2-11eb-8c43-95fe17f14991.png)
 For loop iterates over all layers except last layer , freezing all the parameters except of last layer
-![image](https://user-images.githubusercontent.com/76916164/120119019-0c9f3800-c1b3-11eb-93fb-dd21b5c9a072.png)
+![image](https://github.com/Sandstorm831/Pathological-classification-model/blob/main/Images/120119019-0c9f3800-c1b3-11eb-93fb-dd21b5c9a072.png)
 
 In model summary we can see that input layer have dimensions as that of the image matrix
  
@@ -135,7 +135,7 @@ model.compile(loss='categorical_crossentropy', optimizer = 'adam', metrics=['acc
 # fitting the data into model
 model.fit(X_train,Y_train,epochs=5,batch_size=64,verbose=True,validation_data=(X_val,Y_val))
 ```
-![image](https://user-images.githubusercontent.com/76916164/120119078-58ea7800-c1b3-11eb-80c6-719534163c7f.png)
+![image](https://github.com/Sandstorm831/Pathological-classification-model/blob/main/Images/120119078-58ea7800-c1b3-11eb-80c6-719534163c7f.png)
 
 Final training accuracy  = 86.39%           while         validation accuracy = 80.63%
 # Accuracy and F1 scores 
@@ -163,7 +163,7 @@ for label in os.listdir(test_folder):
 from sklearn.metrics import f1_score,accuracy_score
 f1_score(true_labels,output, average=None)
 ```
-![image](https://user-images.githubusercontent.com/76916164/120119162-d0200c00-c1b3-11eb-89bd-414411ecd53d.png)
+![image](https://github.com/Sandstorm831/Pathological-classification-model/blob/main/Images/120119162-d0200c00-c1b3-11eb-89bd-414411ecd53d.png)
 ```
 output = to_categorical(output)
 ```
@@ -175,14 +175,14 @@ acc = Accuracy()
 acc.update_state(y_test,output)
 acc.result().numpy()
 ```
-![image](https://user-images.githubusercontent.com/76916164/120119224-2725e100-c1b4-11eb-93b7-177c1381ac4c.png)
+![image](https://github.com/Sandstorm831/Pathological-classification-model/blob/main/Images/120119224-2725e100-c1b4-11eb-93b7-177c1381ac4c.png)
 
 Due to class imbalance the F1 score of different of classes differ so drastically . different class have different numbers of data thus model have been trained on different amount of data for different class . 
 
 At last I have visualized the region of interest (ROI) of the images to identify which portion of the image is particularly responsible for the allocation of particular class
 
 
- ![image](https://user-images.githubusercontent.com/76916164/120119254-550b2580-c1b4-11eb-9a8e-7a0a5bcaee4c.png)
+ ![image](https://github.com/Sandstorm831/Pathological-classification-model/blob/main/Images/120119254-550b2580-c1b4-11eb-9a8e-7a0a5bcaee4c.png)
  
  
 Here the yellow region shows the portion of image which is responsible for the 
