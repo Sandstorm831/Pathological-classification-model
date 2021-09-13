@@ -84,7 +84,7 @@ ResNet-50 is a convolutional neural network that is 50 layers deep . In this pro
 model_resnet = resnet50.ResNet50(weights='imagenet')
 model_resnet.summary()
 ```
-![image](https://user-images.githubusercontent.com/76916164/120118825-360b9400-c1b2-11eb-93d1-3dcde5fb20b5.png)
+![image](https://github.com/Sandstorm831/Pathological-classification-model/blob/main/Images/120118825-360b9400-c1b2-11eb-93d1-3dcde5fb20b5.png)
 
 
 Retaining all the parameters of the Resnet-50
