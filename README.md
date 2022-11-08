@@ -1,7 +1,6 @@
 
 # Pathological-classification-model
 A classifier used to classify different OCT images as DME, CNV, DRUSEN &amp; NORMAL
-In this project I have made a model , that would predict whether a OCT scan belong to DME, CNV, DRUSEN or NORMAL class 
 # Importing libraries
 ```
 import numpy as np
